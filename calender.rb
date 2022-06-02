@@ -1,5 +1,12 @@
 require "date" #dateを取得
+require "optparse" #-y,-mなどのオプションをつけたいので取得
 today = Date.today #本日の日付データを取得する変数
+opt = OptionParser.new
+opt.on("-y","--year") do |years|
+    p years
+end
+opt.parse!(ARGV)
+
 first_day = Date.new(today.year, today.month, 1) #現在の月の初日を定義、年月は現在の適用
 last_day = Date.new(today.year, today.month, -1) #現在の月の最終日を定義、年月は現在のを適用
 puts "#{today.year} #{today.month}月".center(20) #現在の年月を取得し表示
@@ -7,7 +14,7 @@ puts "#{today.year} #{today.month}月".center(20) #現在の年月を取得し�
 days_week = ("日 月 火 水 木 金 土")
 puts days_week #カレンダーように曜日を一定間隔で表示
 start_wday = "   " * first_day.wday #１日の曜日の数値分、空白を作成する
-wday_num = first_day.wday #現在の月の１地にの曜日を数値化する
+wday_num = first_day.wday #現在の月の１日の曜日を数値化する
 print start_wday
 
 (1..last_day.day).each do |date| #last_dayのみだと年月も含まれるのでエラー
