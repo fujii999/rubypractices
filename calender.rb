@@ -26,8 +26,8 @@ require "optparse" #-y,-mなどのオプションをつけたいので取得
 def opt_parse
     params={}
     opt = OptionParser.new
-    opt.on("-m VAL", "--month VAL") {|v| params[:month] = v.to_i } #onメソッドで-mのオプションを設定
-    opt.on("-y VAL", "--year VAL") {|v| params[:year] = v.to_i } #onメソッドで-yのオプションを設定
+    opt.on("-m ", "--month ") {|v| params[:month] = v.to_i } #onメソッドで-mのオプションを設定
+    opt.on("-y ", "--year ") {|v| params[:year] = v.to_i } #onメソッドで-yのオプションを設定
     #onメソッドは呼ばれただけでは実行されずに登録されるのみ
     opt.parse!(ARGV)
     params
