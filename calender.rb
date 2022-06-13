@@ -19,7 +19,7 @@ def calender(year: Date.today.year, month: Date.today.month)
   puts "" #最終日に改行をつけ足し終了
 end
 
-require "optparse" #-y,-mなどのオプションをつけたいので取得
+require "optparse"  #-y,-mなどのオプションをつけたいので取得
 
 def opt_parse
   params={}
