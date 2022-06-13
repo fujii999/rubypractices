@@ -11,7 +11,7 @@ def calender(year: Date.today.year, month: Date.today.month)
   wday_num = first_day.wday #現在の月の１日の曜日を数値化する
   print start_wday
 
-(1..last_day.day).each do |date| #last_dayのみだと年月も含まれるのでエラー
+  (1..last_day.day).each do |date| #last_dayのみだと年月も含まれるのでエラー
     print date.to_s.rjust(2) + " " #１から最終日までの数字を文字列に変更し、空白を追加
     wday_num = wday_num + 1 #曜日の数値に１を足していく
     puts if wday_num % 7 == 0 #曜日の数値が7つまり土曜日の場合、改行する #trueの時に改行を行う
